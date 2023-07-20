@@ -1,0 +1,13 @@
+form{
+    margin: auto;
+    text-align: center;
+    border: 1px solid black;
+    width: 600px;
+    padding: 10px;
+}
+span{
+    margin-right: 50px;
+}
+div{
+    display: flex;
+}
