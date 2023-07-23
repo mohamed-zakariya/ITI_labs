@@ -1,3 +1,10 @@
+<?php
+    if(isset($_GET["status"]) && $_GET["status"] == "false"){
+        echo '<script> alert("type the code below right") </script>';
+    }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
