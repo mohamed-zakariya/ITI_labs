@@ -1,12 +1,13 @@
-@extends('category')
+@extends('layouts.app2')
 
-@section('Content')
+@section('content')
     <div class="container">
         <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">{{$category->name}}</h5>
             <br><br>
-            
+            <h5 class="card-title"> Added by {{$category->user? $category->user->name : ''}}</h5>
+            <br><br>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>

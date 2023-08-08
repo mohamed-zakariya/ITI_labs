@@ -1,7 +1,7 @@
-@extends('category')
+@extends('layouts.app2')
 
 
-@section('Content')
+@section('content')
 
     <div class="container">
         <h1> Edit Category</h1>

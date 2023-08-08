@@ -1,7 +1,7 @@
-@extends('category')
+@extends('layouts.app2')
 
 
-@section('Content')
+@section('content')
     <div class="container">
         
 
@@ -16,6 +16,7 @@
             <tr>
                 <th> Id </th>
                 <th> Name </th>
+                <th> Added by </th>
                 <th> Created_at </th>
                 <th> Updated_at </th>
                 <th> Show </th>
@@ -28,6 +29,7 @@
                 <tr>
                     <th> {{$category->id}} </th>
                     <th> {{$category->name}}  </th>
+                    <th>{{$category->user? $category->user->name : ''}}</th>
                     <th> {{$category->created_at}}  </th>
                     <th> {{$category->updated_at}}  </th>
                     <th> <a href="{{ route('categories.show', $category->id)}}"  class="btn btn-primary"> Show </a> </th>

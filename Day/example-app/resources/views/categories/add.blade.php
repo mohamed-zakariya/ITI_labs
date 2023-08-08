@@ -1,7 +1,7 @@
-@extends('category')
+@extends('layouts.app2')
 
 
-@section('Content')
+@section('content')
     <!-- @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -13,7 +13,7 @@
     @endif -->
 
     <div class="container">
-        <h1> Add new Category</h1>
+        <h1> Add new Category  {{ Auth::user()? 'by '.Auth::user()->name: ''}}</h1>
         <form class="container" action="{{route('categories.store', )}}" method="POST">
             @csrf
             <div class="form-group">
@@ -25,6 +25,7 @@
                     {{ $message }}
                 </span>
             @enderror
+            
 
             
             <div class="form-check">

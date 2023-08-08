@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\StoreCategoryRequest;
+use Illuminate\Support\Facades\Auth;
 
 
 class CategoryController extends Controller
@@ -14,6 +15,10 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      */
+    function __construct(){
+        $this->middleware('auth')->only('store', 'destroy', 'update');
+    }
+    
     public function index()
     {
         //
@@ -38,12 +43,12 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
-
         $request->validate([
             'name'=>'required'
         ]);
-
-        Category::create($request->all());
+        $data = $request->all();
+        $data['user_id'] =  Auth::user()->id;
+        Category::create($data);
 
         return to_route('categories.index');
     }

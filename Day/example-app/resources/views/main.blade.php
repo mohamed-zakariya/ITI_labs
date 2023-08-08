@@ -37,7 +37,7 @@
                     <th> {{$Product->price}}  </th>
                     <th> {{$Product->created_at}}  </th>
                     <th> {{$Product->updated_at}}  </th>
-                    <th> <a  class="btn btn-info" href="{{ $Product->category? route('categories.show', $Product->category->id) : null }}"> {{$Product->category? $Product->category->name : null}} </a> </th>
+                    <th> <a  class="btn btn-info" href="{{ $Product->category? route('categories.show', $Product->category->id) : null }}"> {{$Product->category? $Product->category->name : 'No Category'}} </a> </th>
                     <th> <a href="{{ route('products.show', $Product->id) }}"  class="btn btn-primary"> Show </a> </th>
                     <th> <a href="{{ route('products.edit', $Product->id) }}"  class="btn btn-warning"> Edit </a> </th>
                     <th>  <a href="{{ route('products.delete', $Product->id) }}"  class="btn btn-danger"> Delete </a> </th>
