@@ -18,7 +18,7 @@ class CategoryController extends Controller
     function __construct(){
         $this->middleware('auth')->only('store', 'destroy', 'update');
     }
-    
+
     public function index()
     {
         //
@@ -68,18 +68,21 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         //
-        return view ('categories.edit',['category'=>$category] );
+        if(Auth::id() == $category->user_id){
+            return view ('categories.edit',['category'=>$category] );
+        }
+        return abort(401);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreCategoryRequest $request, Category $category)
+    public function update(Request $request, Category $category)
     {
-        //
-        // $request->validate([
-        //     "name"=>'required|unique:categories'
-        // ]);
+        
+        $request->validate([
+            "name"=>'required|unique:categories'
+        ]);
         
         $name = $request->name;
         $category->name = $name;
@@ -94,7 +97,10 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
-        $category->delete();       
-        return to_route("categories.index");
+        if(Auth::id() == $category->user_id){
+            $category->delete();       
+            return to_route("categories.index");
+        }
+        return abort(401);
     }
 }

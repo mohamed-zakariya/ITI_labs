@@ -5,9 +5,9 @@
         <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">{{$category->name}}</h5>
-            <br><br>
+            <br>
             <h5 class="card-title"> Added by {{$category->user? $category->user->name : ''}}</h5>
-            <br><br>
+            <br>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>
